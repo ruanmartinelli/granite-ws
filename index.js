@@ -6,6 +6,8 @@ let { inspection_controller } = require('./controller');
 // aliasing
 app.del = app.delete;
 
+app.get('/', ( req, res, next ) => res.send('api is at <code>/api'))
+
 // middlewares
 app.use(bodyParser.json());
 
