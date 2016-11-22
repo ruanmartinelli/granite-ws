@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 inspection_controller(app);
 
 // starts server
-app.listen(9190, (err) => {
+app.listen(process.env.PORT || 9190, (err) => {
     if (err) throw err;
     console.log(`listening on port 9190`);
 })
