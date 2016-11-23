@@ -1,5 +1,6 @@
 const _ = require('lodash');
 const app = require('express')();
+const cors = require('cors');
 const bodyParser = require('body-parser');
 let { inspection_controller } = require('./controller');
 
@@ -10,6 +11,7 @@ app.get('/', ( req, res, next ) => res.send('api is at <code>/api'))
 
 // middlewares
 app.use(bodyParser.json());
+app.use(cors());
 
 inspection_controller(app);
 
