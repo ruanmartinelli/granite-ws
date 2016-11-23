@@ -2,12 +2,18 @@ const _ = require('lodash');
 const app = require('express')();
 const cors = require('cors');
 const bodyParser = require('body-parser');
-let { inspection_controller } = require('./controller');
+const { inspection_controller } = require('./controller');
 
 // aliasing
 app.del = app.delete;
 
 app.get('/', ( req, res, next ) => res.send('api is at <code>/api'))
+
+app.post('/auth/', ( req, res, next ) => {
+    const { email, password } = req.body;
+    console.log(`sign in attempt --> ${email} + ${password}`);
+    res.send({success: true, token: '567567897yy'});
+})
 
 // middlewares
 app.use(bodyParser.json());
