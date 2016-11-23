@@ -4,6 +4,10 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const { inspection_controller } = require('./controller');
 
+// middlewares
+app.use(bodyParser.json());
+app.use(cors());
+
 // aliasing
 app.del = app.delete;
 
@@ -15,9 +19,6 @@ app.post('/auth/', ( req, res, next ) => {
     res.send({success: true, token: '567567897yy'});
 })
 
-// middlewares
-app.use(bodyParser.json());
-app.use(cors());
 
 inspection_controller(app);
 
