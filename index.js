@@ -14,6 +14,9 @@ app.del = app.delete;
 app.get('/', ( req, res, next ) => res.send('api is at <code>/api'))
 
 app.post('/auth/', ( req, res, next ) => {
+    console.log(req.params);
+    console.log(req.query);
+    console.log(req.body);
     const { email, password } = req.body;
     console.log(`sign in attempt --> ${email} + ${password}`);
     res.send({success: true, token: '567567897yy'});
